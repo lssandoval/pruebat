@@ -1,0 +1,144 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Transaccion;
+
+use App\Services\ArchivosService;
+
+class CrudController extends Controller
+{
+    protected $archivosService;
+
+    public function __construct(ArchivosService $archivosService)
+    {
+        $this->archivosService = $archivosService;
+    }
+    public function obtenerDatosYArchivosExcel()
+    {
+        return $this->archivosService->obtenerArchivosExcel();
+    }
+    public function index(Request $request)
+    {
+        // Obtener todos los datos originales
+        $datosYArchivos = $this->archivosService->obtenerArchivosExcel();
+        $datos = $datosYArchivos['datos'];
+        $archivos = $datosYArchivos['archivos'];
+
+        // Verificar si se realizó una búsqueda
+        if ($request->has('termino')) {
+            // Procesar la búsqueda
+            $termino = $request->input('termino');
+            $resultados = Transaccion::where('codigo_bien', 'like', "%$termino%")
+                ->orWhere('bien', 'like', "%$termino%")
+                ->orWhere('descripcion', 'like', "%$termino%")
+                ->get();
+
+            // Mostrar los resultados de la búsqueda en la misma vista
+            return view('crud', compact('resultados', 'termino', 'archivos',));
+        }
+
+        // Mostrar todos los datos originales
+        return view('crud', compact('datos', 'archivos'));
+    }
+
+    public function create(Request $request)
+    {
+        $transaccion = new Transaccion();
+        $transaccion->codigo_bien = $request->txtcodigo_bienR;
+        $transaccion->codigo_anterior = $request->txtcodidgo_anteriorR;
+        $transaccion->identificador = $request->txtidentificadorR;
+        $transaccion->nro_acta_matriz = $request->txtnro_acta_matrizR;
+        $transaccion->bld_bca = $request->txtbld_bcaR;
+        $transaccion->bien = $request->txtbienR;
+        $transaccion->serie_identificacion = $request->txtserie_identificacionR;
+        $transaccion->modelo_caracteristicas = $request->txtmodelo_caracteristicasR;
+        $transaccion->marca_otros = $request->txtmarca_otrosR;
+        $transaccion->critico = $request->txtcriticoR;
+        $transaccion->moneda = $request->txtmonedaR;
+        $transaccion->valor_compra = $request->txtvalor_compraR;
+        $transaccion->recompra = $request->txtrecompraR;
+        $transaccion->color = $request->txtcolorR;
+        $transaccion->material = $request->txtmaterialR;
+        $transaccion->dimensiones = $request->txtdimensionesR;
+        $transaccion->condicion_bien = $request->txtcondicion_bienR;
+        $transaccion->habilitado = $request->txthabilitadoR;
+        $transaccion->estado_bien = $request->txtestado_bienR;
+        $transaccion->id_bodega = $request->txtid_bodegaR;
+        $transaccion->bodega = $request->txtbodegaR;
+        $transaccion->id_ubicacion = $request->txtid_ubicacionR;
+        $transaccion->ubicacion_bodega = $request->txtubicacion_bodegaR;
+        $transaccion->nro_cedula_ruc = $request->txtnro_cedula_rucR;
+        $transaccion->custodio_actual = $request->txtcustodio_actualR;
+        $transaccion->custodio_activo = $request->txtcustodio_activoR;
+        $transaccion->origen_ingreso = $request->txtorigen_ingresoR;
+        $transaccion->tipo_ingreso = $request->txttipo_ingresoR;
+        $transaccion->nro_compromiso = $request->txtnro_compromisoR;
+        $transaccion->estado_acta = $request->txtestado_actaR;
+        $transaccion->contabilizado_acta = $request->txtcontabilizado_actaR;
+        $transaccion->contabilizado_bien = $request->txtcontabilizado_bienR;
+        $transaccion->descripcion = $request->txtdescripcionR;
+        $transaccion->item_renglon = $request->txtitem_renglonR;
+        $transaccion->cuenta_contable = $request->txtcuenta_contableR;
+        $transaccion->depreciable = $request->txtdepreciableR;
+        $transaccion->fecha_creacion = $request->txtfecha_creacionR;
+        $transaccion->fecha_ingreso = $request->txtfecha_ingresoR;
+        $transaccion->fecha_ultima_depreciacion = $request->txtfecha_ultima_depreciacionR;
+        $transaccion->vida_util = $request->txtvida_utilR;
+        $transaccion->fecha_termino_depreciacion = $request->txtfecha_termino_depreciacionR;
+        $transaccion->valor_contable = $request->txtvalor_contableR;
+        $transaccion->valor_residual = $request->txtvalor_residualR;
+        $transaccion->valor_en_libros = $request->txtvalor_en_librosR;
+        $transaccion->valor_depreciacion_acumulada = $request->txtvalor_depreciacion_acumuladaR;
+        $transaccion->comodato = $request->txtcomodatoR;
+
+        if ($transaccion->save()) {
+            return back()->with("correcto", "Registro chido");
+        } else {
+            return back()->with("incorrecto", "No se registró");
+        }
+    }
+    public function update(Request $request, $id)
+    {
+        // Encuentra la transacción que deseas actualizar por su ID
+        $transaccion = Transaccion::find($id);
+
+        // Verifica si la transacción existe
+        if (!$transaccion) {
+            return back()->with("incorrecto", "La transacción no existe");
+        }
+
+        // Actualiza los valores de la transacción con los datos del formulario
+        $transaccion->id = $request->input('txtidM');
+        $transaccion->codigo = $request->input('txtcodigoM');
+        $transaccion->nombre = $request->input('txtnombreM');
+        $transaccion->saldoanterior = $request->input('txtsaldoanteriorM');
+        $transaccion->debito = $request->input('txtdebitoM');
+        $transaccion->credito = $request->input('txtcreditoM');
+        $transaccion->saldoactual = $request->input('txtsaldoactualM');
+
+        // Guarda los cambios en la base de datos
+        if ($transaccion->save()) {
+            return back()->with("correcto", "Transacción actualizada correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al actualizar la transacción");
+        }
+    }
+
+    public function delete($id)
+    {
+        // Encuentra la transacción que deseas eliminar por su ID
+        $transaccion = Transaccion::find($id);
+        // Verifica si la transacción existe
+        if (!$transaccion) {
+            return back()->with("incorrecto", "La transacción no existe");
+        }
+        // Elimina la transacción
+        $transaccion->delete();
+        // Redirige de vuelta con un mensaje de éxito
+        return back()->with("correcto", "Transacción eliminada correctamente");
+    }
+
+
+}

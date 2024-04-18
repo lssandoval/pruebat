@@ -1,0 +1,119 @@
+/* Estilos generales del cuerpo de la página */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    background-color: #343a40;
+}
+
+/* Estilos del menú desplegable lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #343a40;
+    color: white;
+    padding-top: 60px;
+}
+
+/* Estilos de la foto de perfil en el menú desplegable */
+.profile-picture {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+/* Estilos del mensaje de bienvenida en el menú desplegable */
+.welcome-message {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Estilos del contenido principal */
+.main-content {
+    margin-left: 250px;
+    padding-top: 60px;
+}
+
+/* Estilos de los contenedores de los botones */
+.container {
+    margin-top: 50px;
+}
+
+/* Estilos del rectángulo azul y rojo que contiene los botones */
+.blue-square,
+.red-square {
+    width: 350px;
+    /* Ancho ajustado a 15 cm */
+    height: 250px;
+    /* Alto ajustado a 30 cm */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Cambiado a disposición vertical */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* Estilos del rectángulo azul */
+
+.blue-square {
+    background-color: #7fbfff;
+}
+
+
+/* Estilos del rectángulo rojo */
+
+.red-square {
+    background-color: #e3616d;
+}
+
+
+/* Estilos de los botones dentro de los rectángulos */
+.btn-primary,
+.btn-danger {
+    width: 120px;
+    /* Ancho ajustado */
+    height: 40px;
+    /* Alto ajustado */
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 2mm;
+    /* Espacio entre botones */
+}
+
+/* Estilos personalizados para la tabla */
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    /* Fondo gris claro para filas pares */
+}
+
+.table tbody tr:hover {
+    background-color: #ddd;
+    /* Cambia el color de fondo al pasar el ratón sobre la fila */
+}
+
+.table td,
+.table th {
+    padding: 8px;
+    /* Ajusta el espacio alrededor del contenido de las celdas */
+    text-align: center;
+    /* Centra el texto en las celdas */
+}

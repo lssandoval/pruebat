@@ -1,0 +1,47 @@
+/* Estilos para los cuadrados */
+.square-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Cambiado a altura automática */
+    padding: 20px; /* Añadido relleno */
+}
+
+.square {
+    width: 100%; /* Cambiado a ancho del 100% */
+    max-width: 200px; /* Ancho máximo para evitar que se vuelvan demasiado anchos en pantallas grandes */
+    height: auto; /* Cambiado a altura automática */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px; /* Aumentado el margen para separar los cuadrados */
+}
+
+.blue-square {
+    background-color: #5472d3; /* Azul marino claro */
+}
+
+.red-square {
+    background-color: #dc3545; /* Rojo cereza */
+}
+
+/* Estilos para el botón dentro de los cuadrados */
+.square button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Añadido ancho del 100% para que los botones ocupen todo el espacio disponible */
+}
+
+/* Estilos específicos para el botón dentro del cuadrado azul */
+.blue-square button {
+    background-color: #5472d3; /* Mismo color que el cuadrado */
+}
+
+/* Estilos específicos para el botón dentro del cuadrado rojo */
+.red-square button {
+    background-color: #dc3545; /* Mismo color que el cuadrado */
+}
