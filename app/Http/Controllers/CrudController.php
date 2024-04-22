@@ -99,6 +99,7 @@ class CrudController extends Controller
             return back()->with("incorrecto", "No se registró");
         }
     }
+    
     public function update(Request $request, $id)
     {
         // Encuentra la transacción que deseas actualizar por su ID
@@ -177,9 +178,8 @@ class CrudController extends Controller
 
         // Utiliza el método fill para asignar automáticamente los valores
         $transaccion->fill($request->only($transaccion->getFillable()));
-
         // Guarda los cambios en la base de datos
-        if ($nuevat->save()) {
+        if ($transaccion->save()) {
             return back()->with("success", "Registro actualizado correctamente");
         } else {
             return back()->with("error", "Error al actualizar el registro");
