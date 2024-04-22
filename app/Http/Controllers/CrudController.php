@@ -109,8 +109,7 @@ class CrudController extends Controller
             return back()->with("incorrecto", "La transacción no existe");
         }
 
-        // Actualiza los valores de la transacción con los datos del formulario
-        $transaccion->id = $request->input('txtidM');
+        // Actualiza los valores de la transacción con los datos del formulario;
         $transaccion->codigo_bien = $request->input('txtcodigo_bienR');
         $transaccion->codigo_anterior = $request->input('txtcodidgo_anteriorR');
         $transaccion->identificador = $request->input('txtidentificadorR');

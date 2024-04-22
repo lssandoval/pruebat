@@ -157,10 +157,6 @@
                                         <!-- Primera columna -->
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="a" class="form-label">ID</label>
-                                                <input type="text" class="form-control" name="1" value="{{ $item->id }}">
-                                            </div>
-                                            <div class="mb-3">
                                                 <label for="b" class="form-label">Codigo</label>
                                                 <input type="text" class="form-control" name="2" value="{{ $item->codigo_bien }}">
                                             </div>
