@@ -142,10 +142,10 @@
                     </form>
                     </form>
                 </td>
-                    
+
             </tr>
+            @include('components.modal-modificar', ['index' => $index, 'item' => $item])
             @endforeach
-            <x-modal-modificar>
         </tbody>
     </table>
 
