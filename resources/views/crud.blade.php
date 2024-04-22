@@ -157,37 +157,218 @@
                                         <!-- Primera columna -->
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="inputid1" class="form-label">ID</label>
-                                                <input type="text" class="form-control" name="txtidM" value="{{ $item->id }}">
+                                                <label for="a" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="1" value="{{ $item->id }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="inputCodigo1" class="form-label">Codigo</label>
-                                                <input type="text" class="form-control" name="txtcodigoM" value="{{ $item->codigo }}">
+                                                <label for="b" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="2" value="{{ $item->codigo_bien }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="inputNombre1" class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" name="txtnombreM" value="{{ $item->nombre }}">
+                                                <label for="c" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="3" value="{{ $item->codigo_anterior }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="inputSaldoAnterior1" class="form-label">Saldo
+                                                <label for="d" class="form-label">Saldo
                                                     Anterior</label>
-                                                <input type="text" class="form-control" name="txtsaldoanteriorM" value="{{ $item->saldoanterior }}">
+                                                <input type="text" class="form-control" name="4" value="{{ $item->identificador }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="f" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="5" value="{{ $item->nro_acta_matriz }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="g" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="6" value="{{ $item->bld_bca }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="h" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="7" value="{{ $item->bien }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="i" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="8" value="{{ $item->serie_identificacion }}">
                                             </div>
                                         </div>
                                         <!-- Segunda columna -->
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="inputDebito1" class="form-label">Debito</label>
-                                                <input type="text" class="form-control" name="txtdebitoM" value="{{ $item->debito }}">
+                                                <label for="j" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="9" value="{{ $item->modelo_caracteristicas }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="inputCredito1" class="form-label">Credito</label>
-                                                <input type="text" class="form-control" name="txtcreditoM" value="{{ $item->credito }}">
+                                                <label for="k" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="10" value="{{ $item->marca_otros }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="inputSaldoActual1" class="form-label">Saldo
-                                                    Actual</label>
-                                                <input type="text" class="form-control" name="txtsaldoactualM" value="{{ $item->saldoactual }}">
+                                                <label for="l" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="11" value="{{ $item->critico }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="m" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="12" value="{{ $item->moneda }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="n" class="form-label">IDdgfsdgsdgsd</label>
+                                                <input type="text" class="form-control" name="13" value="{{ $item->valor_compra }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="o" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="14" value="{{ $item->recompra }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="p" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="15" value="{{ $item->color }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="q" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="16" value="{{ $item->material }}">
+                                            </div>
+                                        </div>
+                                        <!-- Tercera columna -->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="r" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="17" value="{{ $item->dimensiones }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="s" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="18" value="{{ $item->condicion_bien }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="t" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="19" value="{{ $item->habilitado }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="u" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="20" value="{{ $item->estado_bien }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="v" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="21" value="{{ $item->id_bodega }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="w" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="22" value="{{ $item->bodega }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="x" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="23" value="{{ $item->id_ubicacion }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="y" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="24" value="{{ $item->ubicacion_bodega }}">
+                                            </div>
+                                        </div>
+                                        <!-- Cuarta columna -->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="z" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="25" value="{{ $item->nro_cedula_ruc }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="a1" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="26" value="{{ $item->custodio_actual }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="b1" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="27" value="{{ $item->custodio_activo }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="c1" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="28" value="{{ $item->origen_ingreso }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="d1" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="29" value="{{ $item->tipo_ingreso }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="e1" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="30" value="{{ $item->nro_compromiso }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="f1" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="31" value="{{ $item->estado_acta }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="g1" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="32" value="{{ $item->contabilizado_acta }}">
+                                            </div>
+                                        </div>
+                                        <!-- Quinta columna -->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="h1" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="txtidM" value="{{ $item->contabilizado_bien }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="i1" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="txtcodigoM" value="{{ $item->descripcion }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="j1" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="txtnombreM" value="{{ $item->item_renglon }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="k1" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="txtsaldoanteriorM" value="{{ $item->cuenta_contable }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="l1" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="txtidM" value="{{ $item->depreciable }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="m1" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="txtcodigoM" value="{{ $item->fecha_creacion }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="n1" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="txtnombreM" value="{{ $item->fecha_ingreso }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="o1" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="txtsaldoanteriorM" value="{{ $item->fecha_ultima_depreciacion }}">
+                                            </div>
+                                        </div>
+                                        <!-- Sexta columna -->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="p1" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="txtidM" value="{{ $item->vida_util }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="q1" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="txtcodigoM" value="{{ $item->fecha_termino_depreciacion }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="r1" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="txtnombreM" value="{{ $item->valor_contable }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="s1" class="form-label">Saldo
+                                                    Anterior</label>
+                                                <input type="text" class="form-control" name="txtsaldoanteriorM" value="{{ $item->valor_residual }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="t1" class="form-label">ID</label>
+                                                <input type="text" class="form-control" name="txtidM" value="{{ $item->valor_en_libros }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="u1" class="form-label">Codigo</label>
+                                                <input type="text" class="form-control" name="txtcodigoM" value="{{ $item->valor_depreciacion_acumulada }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="v1" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" name="txtnombreM" value="{{ $item->comodato }}">
                                             </div>
                                         </div>
                                     </div>
