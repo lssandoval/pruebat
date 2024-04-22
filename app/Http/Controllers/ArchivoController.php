@@ -45,57 +45,60 @@ class ArchivoController extends Controller
                 // Verificar si el primer valor (código) no está vacío y si el array $data tiene al menos 46 elementos
                 if (!empty($data[0]) && count($data) >= 46) {
                     // Crear una nueva instancia del modelo Transaccion
-                    $transaccion = new Transaccion();
-                    // Asignar los valores de la fila al modelo
-                    $transaccion->codigo_bien = $data[0];
-                    $transaccion->codigo_anterior = $data[1];
-                    $transaccion->identificador = $data[2];
-                    $transaccion->nro_acta_matriz = $data[3];
-                    $transaccion->bld_bca = $data[4];
-                    $transaccion->bien = $data[5];
-                    $transaccion->serie_identificacion = $data[6];
-                    $transaccion->modelo_caracteristicas = $data[7];
-                    $transaccion->marca_otros = $data[8];
-                    $transaccion->critico = $data[9];
-                    $transaccion->moneda = $data[10];
-                    $transaccion->valor_compra = $data[11];
-                    $transaccion->recompra = $data[12];
-                    $transaccion->color = $data[13];
-                    $transaccion->material = $data[14];
-                    $transaccion->dimensiones = $data[15];
-                    $transaccion->condicion_bien = $data[16];
-                    $transaccion->habilitado = $data[17];
-                    $transaccion->estado_bien = $data[18];
-                    $transaccion->id_bodega = $data[19];
-                    $transaccion->bodega = $data[20];
-                    $transaccion->id_ubicacion = $data[21];
-                    $transaccion->ubicacion_bodega = $data[22];
-                    $transaccion->nro_cedula_ruc = $data[23];
-                    $transaccion->custodio_actual = $data[24];
-                    $transaccion->custodio_activo = $data[25];
-                    $transaccion->origen_ingreso = $data[26];
-                    $transaccion->tipo_ingreso = $data[27];
-                    $transaccion->nro_compromiso = $data[28];
-                    $transaccion->estado_acta = $data[29];
-                    $transaccion->contabilizado_acta = $data[30];
-                    $transaccion->contabilizado_bien = $data[31];
-                    $transaccion->descripcion = $data[32];
-                    $transaccion->item_renglon = $data[33];
-                    $transaccion->cuenta_contable = $data[34];
-                    $transaccion->depreciable = $data[35];
-                    $transaccion->fecha_creacion = $data[36];
-                    $transaccion->fecha_ingreso = $data[37];
-                    $transaccion->fecha_ultima_depreciacion = $data[38];
-                    $transaccion->vida_util = $data[39];
-                    $transaccion->fecha_termino_depreciacion = $data[40];
-                    $transaccion->valor_contable = $data[41];
-                    $transaccion->valor_residual = $data[42];
-                    $transaccion->valor_en_libros = $data[43];
-                    $transaccion->valor_depreciacion_acumulada = $data[44];
-                    $transaccion->comodato = $data[45];
 
-                    // Guardar el modelo en la base de datos
-                    $transaccion->save();
+                    if ($data[34] === '141.01.07' || $data[34] === '141.01.04') {
+                        $transaccion = new Transaccion();
+                        // Asignar los valores de la fila al modelo
+                        $transaccion->codigo_bien = $data[0];
+                        $transaccion->codigo_anterior = $data[1];
+                        $transaccion->identificador = $data[2];
+                        $transaccion->nro_acta_matriz = $data[3];
+                        $transaccion->bld_bca = $data[4];
+                        $transaccion->bien = $data[5];
+                        $transaccion->serie_identificacion = $data[6];
+                        $transaccion->modelo_caracteristicas = $data[7];
+                        $transaccion->marca_otros = $data[8];
+                        $transaccion->critico = $data[9];
+                        $transaccion->moneda = $data[10];
+                        $transaccion->valor_compra = $data[11];
+                        $transaccion->recompra = $data[12];
+                        $transaccion->color = $data[13];
+                        $transaccion->material = $data[14];
+                        $transaccion->dimensiones = $data[15];
+                        $transaccion->condicion_bien = $data[16];
+                        $transaccion->habilitado = $data[17];
+                        $transaccion->estado_bien = $data[18];
+                        $transaccion->id_bodega = $data[19];
+                        $transaccion->bodega = $data[20];
+                        $transaccion->id_ubicacion = $data[21];
+                        $transaccion->ubicacion_bodega = $data[22];
+                        $transaccion->nro_cedula_ruc = $data[23];
+                        $transaccion->custodio_actual = $data[24];
+                        $transaccion->custodio_activo = $data[25];
+                        $transaccion->origen_ingreso = $data[26];
+                        $transaccion->tipo_ingreso = $data[27];
+                        $transaccion->nro_compromiso = $data[28];
+                        $transaccion->estado_acta = $data[29];
+                        $transaccion->contabilizado_acta = $data[30];
+                        $transaccion->contabilizado_bien = $data[31];
+                        $transaccion->descripcion = $data[32];
+                        $transaccion->item_renglon = $data[33];
+                        $transaccion->cuenta_contable = $data[34];
+                        $transaccion->depreciable = $data[35];
+                        $transaccion->fecha_creacion = $data[36];
+                        $transaccion->fecha_ingreso = $data[37];
+                        $transaccion->fecha_ultima_depreciacion = $data[38];
+                        $transaccion->vida_util = $data[39];
+                        $transaccion->fecha_termino_depreciacion = $data[40];
+                        $transaccion->valor_contable = $data[41];
+                        $transaccion->valor_residual = $data[42];
+                        $transaccion->valor_en_libros = $data[43];
+                        $transaccion->valor_depreciacion_acumulada = $data[44];
+                        $transaccion->comodato = $data[45];
+
+                        // Guardar el modelo en la base de datos
+                        $transaccion->save();
+                    }
                 }
             }
             // Redirigir de vuelta a la página desde la que se hizo la solicitud
