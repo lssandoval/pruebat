@@ -8,6 +8,7 @@ use App\Http\Controllers\VadminController;
 use App\Http\Controllers\ArchivoController;
 use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\BusquedaController;
+use App\Http\Controllers\MantenimientoController;
 
 
 Route::get('/', function () {
@@ -25,6 +26,8 @@ Route::get('/vadmin', [VadminController::class, "index_vadmin"])->name("vadmin.i
 Route::post('/upload-excel', [ExcelController::class, 'upload'])->name('upload.excel');
 
 Route::get('/buscar-en-base', [BusquedaController::class, 'buscar'])->name('buscar.en.base');
+
+Route::post('/registrar-mantenimiento', [MantenimientoController::class, 'store'])->name('mantenimiento.store');
 
 
 
