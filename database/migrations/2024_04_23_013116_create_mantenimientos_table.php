@@ -18,9 +18,9 @@ class CreateMantenimientosTable extends Migration
             $table->unsignedBigInteger('id_nuevat');
             $table->foreign('id_nuevat')->references('id')->on('nuevat')->onDelete('cascade');
             $table->string('tipo_mantenimiento')->nullable();
-            $table->text('observacion_mantenimiento')->nullable();
-            $table->text('recomendacion_mantenimiento')->nullable();
-            $table->dateTime('fecha_mantenimiento')->nullable();
+            $table->string('observacion_mantenimiento')->nullable();
+            $table->string('recomendacion_mantenimiento')->nullable();
+            $table->string('fecha_mantenimiento')->nullable();
             $table->string('tecnico_mantenimiento')->nullable();
             $table->timestamps();
         });

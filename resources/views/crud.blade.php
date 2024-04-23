@@ -140,12 +140,13 @@
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </form>
-                    <button class="btn btn-primary btn-sm btnMantenimiento" data-bs-toggle="modal" data-bs-target="#modalMantenimiento" onclick="openMantenimientoModal()">
-                        Mantenimientos
+                    <button type="button" class="btn btn-primary btnAbrirOpciones" id="btnAbrirOpciones"data-target="#myModal{{ $index }}">
+                        Opciones
                     </button>
 
                 </td>
             </tr>
+            @include('components.modal-opciones', ['index' => $index, 'item' => $item])
             @include('components.modal-modificar', ['index' => $index, 'item' => $item])
             @endforeach
         </tbody>
@@ -299,10 +300,6 @@
                     <form id="formMantenimiento" action="{{ route('mantenimiento.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="idMantenimiento" class="form-label">ID Mantenimiento</label>
-                            <input type="text" class="form-control" id="idMantenimiento" name="id_mantenimiento" >
-                        </div>
-                        <div class="form-group">
                             <label for="codigoBien" class="form-label">Código Bien</label>
                             <input type="text" class="form-control" id="codigoBien" name="txtcodigo_bienR">
                         </div>
@@ -332,6 +329,14 @@
                             <label for="recomendacionMantenimiento">Recomendación</label>
                             <textarea class="form-control" id="recomendacionMantenimiento" name="recomendacion_mantenimiento"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="fechaMantenimiento">Fecha de Mantenimiento</label>
+                            <input type="date" class="form-control" id="fechaMantenimiento" name="fecha_mantenimiento">
+                        </div>
+                        <div class="form-group">
+                            <label for="tecnicoMantenimiento">Técnico de Mantenimiento</label>
+                            <input type="text" class="form-control" id="tecnicoMantenimiento" name="tecnico_mantenimiento">
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary" id="guardarMantenimiento">Guardar</button>
@@ -342,6 +347,10 @@
         </div>
     </div>
 
+
+
+
+    <!-- Modal -->
 
     <!--<div class="modal fade" id="modalSubirExcel" tabindex="-1" aria-labelledby="modalSubirExcelLabel" aria-hidden="true">
         <div class="modal-dialog">

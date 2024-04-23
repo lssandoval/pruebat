@@ -27,7 +27,6 @@ Route::post('/upload-excel', [ExcelController::class, 'upload'])->name('upload.e
 
 Route::get('/buscar-en-base', [BusquedaController::class, 'buscar'])->name('buscar.en.base');
 
-Route::post('/registrar-mantenimiento', [MantenimientoController::class, 'store'])->name('mantenimiento.store');
+Route::post('/registrar-mantenimiento', [MantenimientoController::class, 'agregarMantenimiento'])->name('mantenimiento.store');
 
-
-
+Route::get('/mantenimientos/{id}', [MantenimientoController::class, 'mostrarMantenimientos'])->name('mantenimientos.mostrar');
