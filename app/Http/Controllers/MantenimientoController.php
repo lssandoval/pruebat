@@ -5,14 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mantenimiento;
 use Illuminate\Support\Facades\DB;
+use App\Services\ArchivosService;
 
 class MantenimientoController extends Controller
 {
-    // Método para mostrar los mantenimientos existentes de un bien
-    public function mostrarMantenimientos($id)
+    protected $archivosService;
+
+    public function __construct(ArchivosService $archivosService)
     {
+        $this->archivosService = $archivosService;
+    }
+
+    // Método para mostrar los mantenimientos existentes de un bien
+    public function mostrarMantenimientos(Request $request, $id)
+    {
+        // Obtener los datos de mantenimientos
         $mantenimientos = Mantenimiento::where('id_nuevat', $id)->get();
-        return view('lista', ['mantenimientos' => $mantenimientos]);
+
+        // Retornar los datos de mantenimientos como respuesta JSON
+        return response()->json(['mantenimientos' => $mantenimientos]);
     }
 
     // Método para procesar el formulario de agregar un nuevo mantenimiento

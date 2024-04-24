@@ -29,4 +29,4 @@ Route::get('/buscar-en-base', [BusquedaController::class, 'buscar'])->name('busc
 
 Route::post('/registrar-mantenimiento', [MantenimientoController::class, 'agregarMantenimiento'])->name('mantenimiento.store');
 
-Route::get('/mantenimientos/{id}', [MantenimientoController::class, 'mostrarMantenimientos'])->name('mantenimientos.mostrar');
+Route::get('/mostrarMantenimientos/{id}/mostrar', [MantenimientoController::class, 'mostrarMantenimientos'])->name('mostrarMantenimientos.mostrar');

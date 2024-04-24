@@ -8,18 +8,7 @@
                 </button>
             </div>
             <div class="modal-body" id="mantenimientosContainer">
-                @foreach($mantenimientos as $mantenimiento)
-                <div class="card mb-3">
-                    <div class="card-header">Mantenimiento {{ $mantenimiento->id_mantenimiento }}</div>
-                    <div class="card-body">
-                        <p>Tipo de Mantenimiento: {{ $mantenimiento->tipo_mantenimiento }}</p>
-                        <p>Observación: {{ $mantenimiento->observacion_mantenimiento }}</p>
-                        <p>Recomendación: {{ $mantenimiento->recomendacion_mantenimiento }}</p>
-                        <p>Fecha de Mantenimiento: {{ $mantenimiento->fecha_mantenimiento }}</p>
-                        <p>Técnico de Mantenimiento: {{ $mantenimiento->tecnico_mantenimiento }}</p>
-                    </div>
-                </div>
-                @endforeach
+                <!-- Aquí se mostrarán los mantenimientos -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

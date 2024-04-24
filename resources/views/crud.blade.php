@@ -140,7 +140,7 @@
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </form>
-                    <button type="button" class="btn btn-primary btnAbrirOpciones" id="btnAbrirOpciones"data-target="#myModal{{ $index }}">
+                    <button type="button" class="btn btn-primary btnAbrirOpciones" id="btnAbrirOpciones" data-target="#myModal{{ $index }}">
                         Opciones
                     </button>
 
@@ -351,7 +351,6 @@
 
 
     <!-- Modal -->
-
     <!--<div class="modal fade" id="modalSubirExcel" tabindex="-1" aria-labelledby="modalSubirExcelLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

@@ -1,3 +1,4 @@
+src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
 document.addEventListener("DOMContentLoaded", function () {
     // Función para abrir un modal por su ID
     function abrirModal(idModal) {
@@ -68,7 +69,6 @@ $(document).ready(function () {
 
 
 //mostrar mantenimientos
-
 $(document).ready(function () {
     $('#mostrarMantenimientosBtn').click(function () {
         var idBien = $(this).data('id');
@@ -88,15 +88,16 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $('.mostrarMantenimientosBtn').click(function () {
+    $('.btnMostrarMantenimientos').click(function () {
         var idBien = $(this).data('id');
-        console.log("ID del Bien:", idBien); // Agregar esta línea para imprimir en la consola
+        console.log('xd' + idBien);
         $.ajax({
-            url: '/mantenimientos/' + idBien + '/mostrar',
+            url: '/mostrarMantenimientos/' + idBien + '/mostrar',
             method: 'GET',
             success: function (response) {
-                $('#mantenimientosContainer').html(response);
-                $('#modalMostrarMantenimientos').modal('show'); // Aquí se abre el nuevo modal
+                mostrarModalMantenimientos(response);
+                $('#modalMostrarMantenimientos').modal('show'); // Abrir el modal para mostrar los mantenimientos
+                $('#myModal{{ $index }}').modal('hide'); // Cerrar el modal actual
             },
             error: function (xhr) {
                 console.log(xhr.responseText);
@@ -104,3 +105,30 @@ $(document).ready(function () {
         });
     });
 });
+
+function mostrarModalMantenimientos(data) {
+    // Limpiar el contenedor de mantenimientos
+    $('#mantenimientosContainer').empty();
+    // Verificar si la respuesta contiene datos de mantenimiento
+    if (data && data.mantenimientos && data.mantenimientos.length > 0) {
+        // Iterar sobre los mantenimientos y construir las tarjetas de mantenimiento
+        data.mantenimientos.forEach(function (mantenimiento) {
+            var cardHtml = '<div class="card mb-3">';
+            cardHtml += '<div class="card-header">Mantenimiento ' + mantenimiento.id_mantenimiento + '</div>';
+            cardHtml += '<div class="card-body">';
+            cardHtml += '<p>Tipo de Mantenimiento: ' + mantenimiento.tipo_mantenimiento + '</p>';
+            cardHtml += '<p>Observación: ' + mantenimiento.observacion_mantenimiento + '</p>';
+            cardHtml += '<p>Recomendación: ' + mantenimiento.recomendacion_mantenimiento + '</p>';
+            cardHtml += '<p>Fecha de Mantenimiento: ' + mantenimiento.fecha_mantenimiento + '</p>';
+            cardHtml += '<p>Técnico de Mantenimiento: ' + mantenimiento.tecnico_mantenimiento + '</p>';
+            cardHtml += '</div></div>';
+
+            // Agregar la tarjeta al contenedor
+            $('#mantenimientosContainer').append(cardHtml);
+            console.log('data' + cardHtml);
+        });
+    } else {
+        // Si no hay datos de mantenimiento, mostrar un mensaje adecuado
+        $('#mantenimientosContainer').html('<p>No se encontraron datos de mantenimiento para este elemento.</p>');
+    }
+}
