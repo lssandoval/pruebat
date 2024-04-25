@@ -75,6 +75,4 @@ class MantenimientoController extends Controller
         // Redireccionar o devolver una respuesta JSON según sea necesario
         return redirect()->back()->with('success', 'Mantenimiento registrado correctamente');
     }
-
-    // Otros métodos del controlador...
 }

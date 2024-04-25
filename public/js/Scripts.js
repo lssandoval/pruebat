@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 //TODO LO DE ABAJO ES PARA LOS MANTENIMIENTOS
+//AÑADIR NUEVO MANTENIMIENTO
 $('#modalMantenimiento').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget); // Button that triggered the modal
     var codigoBien = button.data('codigoBien'); // Extract codigoBien from data-* attributes
@@ -68,7 +69,7 @@ $(document).ready(function () {
 });
 
 
-//mostrar mantenimientos
+//MOSTRAR MANTENIMIENTOS
 $(document).ready(function () {
     $('#mostrarMantenimientosBtn').click(function () {
         var idBien = $(this).data('id');
@@ -132,3 +133,5 @@ function mostrarModalMantenimientos(data) {
         $('#mantenimientosContainer').html('<p>No se encontraron datos de mantenimiento para este elemento.</p>');
     }
 }
+
+

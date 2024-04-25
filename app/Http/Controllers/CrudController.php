@@ -43,8 +43,7 @@ class CrudController extends Controller
         return view('crud', compact('datos', 'archivos'));
     }
 
-    public function create(Request $request)
-    {
+    public function create(Request $request){
         $transaccion = new Transaccion();
         $transaccion->codigo_bien = $request->txtcodigo_bienR;
         $transaccion->codigo_anterior = $request->txtcodidgo_anteriorR;
@@ -99,9 +98,8 @@ class CrudController extends Controller
             return back()->with("incorrecto", "No se registró");
         }
     }
-    
-    public function update(Request $request, $id)
-    {
+
+    public function update(Request $request, $id){
         // Encuentra la transacción que deseas actualizar por su ID
         $transaccion = Transaccion::find($id);
 
@@ -165,29 +163,8 @@ class CrudController extends Controller
             return back()->with("incorrecto", "Error al actualizar");
         }
     }
-
-    /*public function update(Request $request, $id)
-    {
-        // Encuentra el registro que deseas actualizar por su ID
-        $transaccion = Transaccion::find($id);
-
-        // Verifica si el registro existe
-        if (!$transaccion) {
-            return back()->with("error", "El registro no existe");
-        }
-
-        // Utiliza el método fill para asignar automáticamente los valores
-        $transaccion->fill($request->only($transaccion->getFillable()));
-        // Guarda los cambios en la base de datos
-        if ($transaccion->save()) {
-            return back()->with("success", "Registro actualizado correctamente");
-        } else {
-            return back()->with("error", "Error al actualizar el registro");
-        }
-    }*/
-
-    public function delete($id)
-    {
+    
+    public function delete($id){
         // Encuentra la transacción que deseas eliminar por su ID
         $transaccion = Transaccion::find($id);
         // Verifica si la transacción existe
@@ -199,6 +176,4 @@ class CrudController extends Controller
         // Redirige de vuelta con un mensaje de éxito
         return back()->with("correcto", "Transacción eliminada correctamente");
     }
-
-
 }
