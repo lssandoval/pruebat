@@ -129,6 +129,13 @@
                 <td>{{ $item->valor_depreciacion_acumulada }}</td>
                 <td>{{ $item->comodato }}</td>
                 <td>
+                    <div id="qrCode{{$index}}" class="qr-code">
+                        <!-- Formulario para enviar el token CSRF junto con la solicitud AJAX -->
+
+                        <button type="submit" class="btn btn-warning btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#modalOpciones{{$index}}">
+                            QR
+                        </button>
+                    </div>
                     <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditar{{ $index }}">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
@@ -142,6 +149,30 @@
                     <button type="button" class="btn btn-primary btnAbrirOpciones" id="btnAbrirOpciones" data-target="#myModal{{ $index }}">
                         Opciones
                     </button>
+
+                    <div class="modal fade" id="modalOpciones{{ $index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">QR del Bien</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Mostrar el ID y el código de bien -->
+                                    <p>ID: {{ $item->id }}</p>
+                                    <p>Código Bien: {{ $item->codigo_bien }}</p>
+                                    <!-- Agrega el espacio para mostrar la imagen del código QR -->
+                                    <div id="codigoQR{{ $index }}"></div>
+                                    <!-- Botón para generar QR -->
+                                    <button type="button" class="btn btn-primary btnGenerarQRModal" data-index="{{ $index }}" data-id="{{ $item->id }}" data-codigo-bien="{{ $item->codigo_bien }}">Generar QR</button>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </td>
             </tr>
@@ -303,8 +334,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/Scripts.js') }}"></script>
     <script src="{{ asset('js/BusquedaCrud.js') }}"></script>
-    <script>var buscarEnBaseUrl = "{{ route('buscar.en.base') }}";</script>
+    <script>
+        var buscarEnBaseUrl = "{{ route('buscar.en.base') }}";
+    </script>
     <script src="{{ asset('js/BusquedaCrud.js') }}"></script>
 
+    <script>
+        $(document).ready(function() {
+            $('.btnGenerarQRModal').click(function() {
+                var index = $(this).data('index');
+                var id = $(this).data('id');
+                var codigo_bien = $(this).data('codigo-bien');
+                console.log('Se hizo clic en el botón "Generar QR" del modal para el índice:', index, id, codigo_bien);
+                $.ajax({
+                    url: '{{ route("generate-qrcode") }}',
+                    method: 'POST',
+                    data: {
+                        id: id,
+                        codigo_bien: codigo_bien,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        // Manejar la respuesta
+                        var qrCodeUrl = response.qr_code_url; // Aquí es qr_code_url, no rutaImagenQR
+
+                        // Agregar la imagen del código QR al modal
+                        $('#codigoQR' + index).html('<img src="' + qrCodeUrl + '" alt="QR Code">');
+
+                        // Mostrar el modal
+                        $('#modalOpciones' + index).modal('show');
+                    },
+                    error: function(xhr, status, error) {
+                        // Manejar errores
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>

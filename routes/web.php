@@ -10,6 +10,8 @@ use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\BusquedaController;
 use App\Http\Controllers\MantenimientoController;
 
+use App\Http\Controllers\QRCodeController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,4 +32,7 @@ Route::get('/buscar-en-base', [BusquedaController::class, 'buscar'])->name('busc
 Route::post('/registrar-mantenimiento', [MantenimientoController::class, 'agregarMantenimiento'])->name('mantenimiento.store');
 Route::get('/mostrarMantenimientos/{id}/mostrar', [MantenimientoController::class, 'mostrarMantenimientos'])->name('mostrarMantenimientos.mostrar');
 
+
+
+Route::post('/generate-qrcode', [QRCodeController::class, 'generateQR'])->name('generate-qrcode');
 
