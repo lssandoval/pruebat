@@ -339,39 +339,39 @@
     </script>
     <script src="{{ asset('js/BusquedaCrud.js') }}"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('.btnGenerarQRModal').click(function() {
-                var index = $(this).data('index');
-                var id = $(this).data('id');
-                var codigo_bien = $(this).data('codigo-bien');
-                console.log('Se hizo clic en el botón "Generar QR" del modal para el índice:', index, id, codigo_bien);
-                $.ajax({
-                    url: '{{ route("generate-qrcode") }}',
-                    method: 'POST',
-                    data: {
-                        id: id,
-                        codigo_bien: codigo_bien,
-                        _token: '{{ csrf_token() }}'
-                    },
-                    success: function(response) {
-                        // Manejar la respuesta
-                        var qrCodeUrl = response.qr_code_url; // Aquí es qr_code_url, no rutaImagenQR
+        <script>
+            $(document).ready(function() {
+                $('.btnGenerarQRModal').click(function() {
+                    var index = $(this).data('index');
+                    var id = $(this).data('id');
+                    var codigo_bien = $(this).data('codigo-bien');
+                    console.log('Se hizo clic en el botón "Generar QR" del modal para el índice:', index, id, codigo_bien);
+                    $.ajax({
+                        url: '{{ route("generate-qrcode") }}',
+                        method: 'POST',
+                        data: {
+                            id: id,
+                            codigo_bien: codigo_bien,
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            // Manejar la respuesta
+                            var qrCodeUrl = response.qr_code_url; // Aquí es qr_code_url, no rutaImagenQR
 
-                        // Agregar la imagen del código QR al modal
-                        $('#codigoQR' + index).html('<img src="' + qrCodeUrl + '" alt="QR Code">');
+                            // Agregar la imagen del código QR al modal
+                            $('#codigoQR' + index).html('<img src="' + qrCodeUrl + '" alt="QR Code">');
 
-                        // Mostrar el modal
-                        $('#modalOpciones' + index).modal('show');
-                    },
-                    error: function(xhr, status, error) {
-                        // Manejar errores
-                        console.error(error);
-                    }
+                            // Mostrar el modal
+                            $('#modalOpciones' + index).modal('show');
+                        },
+                        error: function(xhr, status, error) {
+                            // Manejar errores
+                            console.error(error);
+                        }
+                    });
                 });
             });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
