@@ -37,6 +37,10 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <!-- Botón de Iniciar Sesión 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
+                        </li>-->
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))

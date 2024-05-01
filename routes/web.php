@@ -12,6 +12,8 @@ use App\Http\Controllers\MantenimientoController;
 
 use App\Http\Controllers\QRCodeController;
 
+use App\Http\Controllers\LoginController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,3 +38,5 @@ Route::get('/mostrarMantenimientos/{id}/mostrar', [MantenimientoController::clas
 
 Route::post('/generate-qrcode', [QRCodeController::class, 'generateQR'])->name('generate-qrcode');
 
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'ldapAuthenticate'])->name('ldap.authenticate');
