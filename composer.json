@@ -9,8 +9,12 @@
         "adldap2/adldap2": "^4.0",
         "bacon/bacon-qr-code": "^3.0",
         "laravel/framework": "^11.0",
+        "laravel/jetstream": "^5.1",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "phpoffice/phpspreadsheet": "^2.0"
+        "livewire/livewire": "^3.0",
+        "phpoffice/phpspreadsheet": "^2.0",
+        "rappasoft/laravel-livewire-tables": "^3.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
